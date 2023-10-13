@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-import { addHours } from "date-fns";
+import { addHours, differenceInSeconds } from "date-fns";
 
 import Modal from "react-modal";
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import es from "date-fns/locale/es";
+registerLocale("es", es);
 
 const customStyles = {
     content: {
@@ -46,6 +48,25 @@ export const CalendarModal = () => {
     const onCloseModal = () => {
         setIsOpen(false);
     };
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+
+        const difference = differenceInSeconds(
+            formValues.end,
+            formValues.start
+        );
+
+        if (isNaN(difference) || difference <= 0) {
+            console.log("error en fechas");
+            return;
+        }
+
+        if (formValues.title.length <= 0) return;
+
+        console.log(formValues);
+    };
+
     return (
         <Modal
             isOpen={isOpen}
@@ -57,19 +78,27 @@ export const CalendarModal = () => {
         >
             <h1> Nuevo evento </h1>
             <hr />
-            <form className="container">
-                <div className="form-group mb-2">
+            <form className="container" onSubmit={onSubmit}>
+                <div
+                    className="form-group mb-2"
+                    style={{ display: "flex", flexDirection: "column" }}
+                >
                     <label>Fecha y hora inicio</label>
                     <DatePicker
                         selected={formValues.start}
                         onChange={(event) => onDateChanged(event, "start")}
                         className="form-control"
                         dateFormat="Pp"
-                        style={{ display: "block" }}
+                        showTimeSelect
+                        locale="es"
+                        timeCaption="Hora"
                     />
                 </div>
 
-                <div className="form-group mb-2 ">
+                <div
+                    className="form-group mb-2 "
+                    style={{ display: "flex", flexDirection: "column" }}
+                >
                     <label>Fecha y hora fin</label>
                     <DatePicker
                         className="form-control"
@@ -77,6 +106,9 @@ export const CalendarModal = () => {
                         selected={formValues.end}
                         onChange={(event) => onDateChanged(event, "end")}
                         dateFormat="Pp"
+                        showTimeSelect
+                        locale="es"
+                        timeCaption="Hora"
                     />
                 </div>
 
