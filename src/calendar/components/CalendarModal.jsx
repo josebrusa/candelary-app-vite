@@ -1,12 +1,15 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 import { addHours, differenceInSeconds } from "date-fns";
 
 import Modal from "react-modal";
 import DatePicker, { registerLocale } from "react-datepicker";
 
+import "sweetalert2/dist/sweetalert2.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 import es from "date-fns/locale/es";
+import { useMemo } from "react";
 registerLocale("es", es);
 
 const customStyles = {
@@ -24,12 +27,19 @@ Modal.setAppElement("#root");
 
 export const CalendarModal = () => {
     const [isOpen, setIsOpen] = useState(true);
+    const [formSubmitted, setFormSubmitted] = useState(false);
     const [formValues, setFormValues] = useState({
         title: "Jose",
         notes: "brusa",
         start: new Date(),
         end: addHours(new Date(), 2),
     });
+
+    const titleClass = useMemo(() => {
+        if (!formSubmitted) return "";
+
+        return formValues.title.length > 0 ? "" : "is-invalid";
+    }, [formValues.title, formSubmitted]);
 
     const onInputChanged = ({ target }) => {
         setFormValues({
@@ -51,6 +61,7 @@ export const CalendarModal = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
+        setFormSubmitted(true);
 
         const difference = differenceInSeconds(
             formValues.end,
@@ -58,7 +69,11 @@ export const CalendarModal = () => {
         );
 
         if (isNaN(difference) || difference <= 0) {
-            console.log("error en fechas");
+            Swal.fire(
+                "Fechas incorrectas",
+                "Revisar las fechas ingresadas",
+                "error"
+            );
             return;
         }
 
@@ -117,7 +132,7 @@ export const CalendarModal = () => {
                     <label>Titulo y notas</label>
                     <input
                         type="text"
-                        className="form-control"
+                        className={`form-control ${titleClass}`}
                         placeholder="Título del evento"
                         name="title"
                         autoComplete="off"
