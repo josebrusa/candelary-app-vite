@@ -17,6 +17,9 @@ dependencies:
   react-big-calendar:
     specifier: ^1.8.4
     version: 1.8.4(react-dom@18.2.0)(react@18.2.0)
+  react-datepicker:
+    specifier: ^4.20.0
+    version: 4.20.0(react-dom@18.2.0)(react@18.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -855,6 +858,10 @@ packages:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
     dev: true
+
+  /classnames@2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /clsx@1.2.1:
     resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
@@ -1967,6 +1974,22 @@ packages:
       uncontrollable: 7.2.1(react@18.2.0)
     dev: false
 
+  /react-datepicker@4.20.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-I29yHN9SabUDSy7Xq3P8+E8E+D2vyeuYAYYWWjeMisGGtsatltV4CSHodyA7W9z0BuGycc/bhSClDbizx4gZHA==}
+    peerDependencies:
+      react: ^16.9.0 || ^17 || ^18
+      react-dom: ^16.9.0 || ^17 || ^18
+    dependencies:
+      '@popperjs/core': 2.11.8
+      classnames: 2.3.2
+      date-fns: 2.30.0
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-onclickoutside: 6.13.0(react-dom@18.2.0)(react@18.2.0)
+      react-popper: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0)
+    dev: false
+
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -1975,6 +1998,10 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-fast-compare@3.2.2:
+    resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
     dev: false
 
   /react-is@16.13.1:
@@ -1999,6 +2026,16 @@ packages:
       warning: 4.0.3
     dev: false
 
+  /react-onclickoutside@6.13.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ty8So6tcUpIb+ZE+1HAhbLROvAIJYyJe/1vRrrcmW+jLsaM+/powDRqxzo6hSh9CuRZGSL1Q8mvcF5WRD93a0A==}
+    peerDependencies:
+      react: ^15.5.x || ^16.x || ^17.x || ^18.x
+      react-dom: ^15.5.x || ^16.x || ^17.x || ^18.x
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react-overlays@5.2.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-GLLSOLWr21CqtJn8geSwQfoJufdt3mfdsnIiQswouuQ2MMPns+ihZklxvsTDKD3cR2tF8ELbi5xUsvqVhR6WvA==}
     peerDependencies:
@@ -2014,6 +2051,20 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       uncontrollable: 7.2.1(react@18.2.0)
+      warning: 4.0.3
+    dev: false
+
+  /react-popper@2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==}
+    peerDependencies:
+      '@popperjs/core': ^2.0.0
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: ^16.8.0 || ^17 || ^18
+    dependencies:
+      '@popperjs/core': 2.11.8
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-fast-compare: 3.2.2
       warning: 4.0.3
     dev: false
 
