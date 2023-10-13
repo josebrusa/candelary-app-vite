@@ -1,3 +1,9 @@
+import { NavBar } from "../";
+
 export const CalendarPages = () => {
-    return <div>CalendarPages</div>;
+    return (
+        <>
+            <NavBar />
+        </>
+    );
 };
