@@ -10,7 +10,7 @@ export const NavBar = () => {
             </span>
             <button onClick={startLogout} className="btn btn-outline-danger">
                 <i className="fa fa-sign-out-alt"></i>
-                &nbsp:
+                &nbsp;
                 <span>Salir</span>
             </button>
         </div>
