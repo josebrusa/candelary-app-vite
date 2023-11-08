@@ -12,6 +12,7 @@ import es from "date-fns/locale/es";
 import { useMemo } from "react";
 import { useCalendarStore, useUiStore } from "../../hooks";
 import { useEffect } from "react";
+import { getEnvVariables } from "../../helpers";
 registerLocale("es", es);
 
 const customStyles = {
@@ -25,7 +26,9 @@ const customStyles = {
     },
 };
 
-Modal.setAppElement("#root");
+if (getEnvVariables().VITE_MODE !== "dev") {
+    Modal.setAppElement("#root");
+}
 
 export const CalendarModal = () => {
     const { isDateModalOpen, closeDateModal } = useUiStore();
