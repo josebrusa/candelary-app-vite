@@ -59,3 +59,11 @@
     position: fixed;
     left: 25px;
 }
+
+.fab-out {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(215, 77, 77, 0.584);
+}
